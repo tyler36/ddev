@@ -196,7 +196,27 @@ Here's a quickstart instructions for a number of different environments:
         ddev composer install  # If a composer build
         ddev launch
         ```
-
+    
+    Pro tip: default admin user
+    One of the benefits of using drush to install your site is you can set a global config file. DDEV can automatically copy this file into every new project and use it to set the username, password, or even default language for a new Drupal site. 
+    
+    1. Create `~/.ddev/homeadditions/.drush/drush.yml`
+    2. Add the the following content; make sure to update `account-name` & `account-password`
+    
+    ```yaml
+    command:
+      site:
+        install:
+          options:
+            account-name: 'ddevadmin'
+            account-pass: 'mysecretpassword'
+    ```
+    
+    3. Now, any new project created following these quickstart guides will have a predetermined username and password. 
+    
+    See [Drush configuration](https://www.drush.org/latest/using-drush-configuration/#drush-configuration) for more information.
+    
+    
 === "TYPO3"
 
     ## TYPO3
