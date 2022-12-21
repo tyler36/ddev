@@ -118,9 +118,9 @@ curl http://${PROJECT_NAME}.ddev.site
 echo "======== Project ownership on host:"
 ls -ld ${PROJECT_DIR}
 echo "======== Project ownership in container:"
-ddev exec ls -ld /var/www/html
+ddev exec ls -ld "/var/www/html"
 echo "======== In-container filesystem:"
-ddev exec df -T /var/www/html
+ddev exec df -T "/var/www/html"
 echo "======== curl again of ${PROJECT_NAME} from host:"
 curl --fail http://${PROJECT_NAME}.ddev.site
 if [ $? -ne 0 ]; then
