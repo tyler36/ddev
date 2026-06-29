@@ -150,7 +150,7 @@ jobs:
           echo "date=$(/bin/date -u "+%Y%V")" >> $GITHUB_OUTPUT
 
       - name: DDEV test cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         if: ${{ github.ref == 'refs/heads/main' && inputs.gotest_short == '' }}
         with:
           path: ~/.ddev/testcache/tarballs
@@ -159,7 +159,7 @@ jobs:
             ddev-test-cache-
 
       - name: DDEV test cache/restore
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         if: ${{ github.ref != 'refs/heads/main' || inputs.gotest_short != '' }}
         with:
           path: ~/.ddev/testcache/tarballs
